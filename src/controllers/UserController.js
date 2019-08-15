@@ -63,7 +63,7 @@ const authenticate = async ({ email, password }) => {
     }
 
     if (userInfo && bcrypt.compareSync(password, userInfo.password)) {
-        const secret = 'SECRET_KEY'; // TODO
+        const secret = process.env.JWT_SECRET;
         const opts = {
             expiresIn: 86400 // 24 hours
         };
