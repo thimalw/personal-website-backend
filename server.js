@@ -9,7 +9,7 @@ require('dotenv').config();
 const app = express();
 
 // connect to mongodb and provide the express setup as callback function
-mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`, err => {
+mongoose.connect(`mongodb://${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_NAME}`, { useNewUrlParser: true }, err => {
     // check for database connection errors and abort (throw) if an error has occured
     if (err) {
         throw new Error('Database connection failed! err: ' + err);
