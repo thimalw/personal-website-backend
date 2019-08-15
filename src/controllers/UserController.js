@@ -3,8 +3,8 @@ const jwt = require('jsonwebtoken');
 const Joi = require('joi');
 
 const User = require('../models/User');
-const logger = require('../services/winston');
-const validUser = require('../services/validation').validUser;
+const logger = require('../services/logger');
+const validUser = require('../models/validation/User');
 const { makeRes, to } = require('../helpers');
 
 const create = async (user) => {

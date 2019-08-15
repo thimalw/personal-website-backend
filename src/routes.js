@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const passport = require('passport');
-const jwtAuth = require("../services/jwtAuth");
+const jwtAuth = require("./services/jwtAuth");
 const UserController = require('./controllers/UserController');
 
 passport.use(jwtAuth);
@@ -11,7 +11,9 @@ router.post('/user', async (req, res) => {
     res.status(user.status || 500).send(user);
 });
 
-router.post('/user/login', async (req, res) => {
-    const token = await UserController.authenticate(req.body);
-    res.status(token.status || 500).send(token);
-});
+// router.post('/user/login', async (req, res) => {
+//     const token = await UserController.authenticate(req.body);
+//     res.status(token.status || 500).send(token);
+// });
+
+module.exports = router;
