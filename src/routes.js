@@ -19,12 +19,12 @@ router.post('/user/login', async (req, res) => {
 
 // project routes
 router.post('/projects', passport.authenticate('jwt', { session: false }), async (req, res) => {
-    const projects = await ProjectsController.create(req.user._id, req.body);
+    const projects = await ProjectsController.create(req.body);
     res.status(projects.status).send(projects);
 });
 
 router.get('/projects', async (req, res) => {
-    const projects = await ProjectsController.list(req.user._id);
+    const projects = await ProjectsController.list();
     res.status(projects.status).send(projects);
 });
 
